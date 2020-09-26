@@ -5,6 +5,6 @@ export function wrapPageElement({ element }) {
   return <ContextProvider>{element}</ContextProvider>;
 }
 
-export function onRouteUpdate({ location }) {
-  console.log(location);
-}
+// export function onRouteUpdate({ location }) {
+//   console.log(location);
+// }
