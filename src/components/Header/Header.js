@@ -23,9 +23,9 @@ export default function Header({ sections: links }) {
               .filter(({ node }) => node.frontmatter.title && node.frontmatter.lang === language)
               .map(({ node: { frontmatter: { title: link }, id } }) => (
                 <li key={id}>
-                  <a href={"/#" + link} onClick={() => setBurgerStatus("close")}>
+                  <Link to={`/#${link}`} onClick={() => setBurgerStatus("close")}>
                     {link.charAt(0).toUpperCase() + link.slice(1)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             {/* <li>
