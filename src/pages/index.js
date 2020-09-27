@@ -16,7 +16,7 @@ export const query = graphql`
   query {
     allMdx(
       sort: { fields: frontmatter___order, order: ASC }
-      filter: { fileAbsolutePath: { regex: "/src/sections{1}/" } }
+      filter: { fileAbsolutePath: { regex: "/src/(pers_)?sections{1}/" } }
     ) {
       edges {
         node {

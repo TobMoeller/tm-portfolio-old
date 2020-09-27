@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const personal = true;
+
 module.exports = {
   siteMetadata: {
     title: `Portfolio`,
@@ -16,7 +18,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `sections`,
-        path: `${__dirname}/src/sections/`,
+        path: `${__dirname}/src/${personal ? "pers_" : ""}sections/`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
@@ -24,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `projects`,
-        path: `${__dirname}/src/projects/`,
+        path: `${__dirname}/src/${personal ? "pers_" : ""}projects/`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },

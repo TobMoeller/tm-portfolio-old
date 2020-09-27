@@ -12,7 +12,7 @@ export default function Projects() {
       query {
         allMdx(
           sort: { fields: frontmatter___order, order: ASC }
-          filter: { fileAbsolutePath: { regex: "/src/projects{1}/" } }
+          filter: { fileAbsolutePath: { regex: "/src/(pers_)?projects{1}/" } }
         ) {
           edges {
             node {
