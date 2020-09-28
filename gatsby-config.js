@@ -9,8 +9,10 @@ const personal = true;
 module.exports = {
   siteMetadata: {
     title: `Portfolio`,
-    description: `A Site to showcase the owners projects`,
-    author: `Tobias Möller`,
+    description: `Showcase of some of Tobias Möller's recent work`,
+    titleTemplate: "Tobias Möller's %s",
+    url: `https://www.tobias-moeller.de`,
+    image: `/images/tobiasmoeller.png`,
   },
   /* Your site config here */
   plugins: [
@@ -31,6 +33,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-typography`,
       options: {

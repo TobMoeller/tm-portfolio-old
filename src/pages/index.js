@@ -2,13 +2,17 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import Content from "../components/Content/Content";
+import SEO from "../components/SEO/SEO";
 
 export default function Home({ data }) {
   const { edges: sections } = data.allMdx;
   return (
-    <Layout sections={sections}>
-      <Content sections={sections} />
-    </Layout>
+    <React.Fragment>
+      <SEO />
+      <Layout sections={sections}>
+        <Content sections={sections} />
+      </Layout>
+    </React.Fragment>
   );
 }
 
