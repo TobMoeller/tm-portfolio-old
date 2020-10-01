@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import "./Projects.css";
 import { useLanguage } from "../Context/ContextProvider";
+import ProjectImage from "../ProjectImage/ProjectImage";
 
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
@@ -49,6 +50,7 @@ export default function Projects() {
         break;
     }
   };
+  // console.log("Current Project" + currentProject);
   return (
     <div className="projects">
       {/* {projects.map(({ node: project }, index) => (
@@ -59,6 +61,10 @@ export default function Projects() {
         </div>
       ))} */}
       <div className="project">
+        <ProjectImage
+          currentProject={currentProject}
+          projectTitle={projects[currentProject].node.frontmatter.title}
+        />
         <MDXRenderer>{projects[currentProject].node.body}</MDXRenderer>
       </div>
       <button className="prev" onClick={() => changeSlides(1, "-")}>
@@ -86,7 +92,7 @@ function DotButton({ currentProject, index, changeSlides }) {
     <button
       className={`dot ${currentProject === index ? "active" : ""}`}
       onClick={() => changeSlides(index)}
-      aria-labelledby="dot"
+      aria-labelledby={`dot${index + 1} ${currentProject === index ? "active" : ""}`}
     />
   );
 }

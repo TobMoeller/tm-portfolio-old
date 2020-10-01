@@ -11,7 +11,7 @@ export default function Layout({ children, sections }) {
     <React.Fragment>
       <div className={`themewrapper ${theme}`}>
         <Header sections={sections} />
-        <main id="wrapper">{children}</main>
+        <main>{children}</main>
         <Footer />
       </div>
     </React.Fragment>
