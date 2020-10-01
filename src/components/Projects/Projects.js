@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import "./Projects.css";
 import { useLanguage } from "../Context/ContextProvider";
-import ProjectImage from "../ProjectImage/ProjectImage";
 
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
@@ -23,6 +22,7 @@ export default function Projects() {
               frontmatter {
                 lang
                 title
+                projectWebsite
               }
             }
           }
@@ -50,9 +50,17 @@ export default function Projects() {
         break;
     }
   };
-  // console.log("Current Project" + currentProject);
+  const DotButton = ({ currentProject, index, changeSlides }) => {
+    return (
+      <button
+        className={`dot ${currentProject === index ? "active" : ""}`}
+        onClick={() => changeSlides(index)}
+        aria-labelledby={`dot${index + 1} ${currentProject === index ? "active" : ""}`}
+      />
+    );
+  };
   return (
-    <div className="projects">
+    <div className="projects-wrapper">
       {/* {projects.map(({ node: project }, index) => (
         <div className="project  fade" key={`project${index}`}>
           <div className={project.slug + " " + index}>
@@ -61,11 +69,17 @@ export default function Projects() {
         </div>
       ))} */}
       <div className="project">
-        <ProjectImage
+        {/* <ProjectImage
           currentProject={currentProject}
           projectTitle={projects[currentProject].node.frontmatter.title}
-        />
-        <MDXRenderer>{projects[currentProject].node.body}</MDXRenderer>
+        /> */}
+        <MDXRenderer
+          currentProject={currentProject}
+          projectWebsite={projects[currentProject].node.frontmatter.projectWebsite}
+          projectTitle={projects[currentProject].node.frontmatter.title}
+        >
+          {projects[currentProject].node.body}
+        </MDXRenderer>
       </div>
       <button className="prev" onClick={() => changeSlides(1, "-")}>
         &#10094;
@@ -84,15 +98,5 @@ export default function Projects() {
         ))}
       </div>
     </div>
-  );
-}
-
-function DotButton({ currentProject, index, changeSlides }) {
-  return (
-    <button
-      className={`dot ${currentProject === index ? "active" : ""}`}
-      onClick={() => changeSlides(index)}
-      aria-labelledby={`dot${index + 1} ${currentProject === index ? "active" : ""}`}
-    />
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 
-export default function ProjectImage({ currentProject, projectTitle }) {
+export default function ProjectImage({ currentProject, projectTitle, projectWebsite }) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -11,7 +11,7 @@ export default function ProjectImage({ currentProject, projectTitle }) {
             absolutePath: { regex: "/src/(pers_)?images{1}/" }
             relativeDirectory: { eq: "projects" }
           }
-          sort: { order: ASC, fields: relativePath }
+          sort: { order: ASC, fields: base }
         ) {
           edges {
             node {
@@ -28,17 +28,22 @@ export default function ProjectImage({ currentProject, projectTitle }) {
   );
 
   const { edges } = data.allFile;
-  // console.log(data);
+  console.log(data);
+  console.log(projectWebsite);
   return (
     <React.Fragment>
-      {edges.length ? (
-        <Img
-          fluid={edges[currentProject].node.childImageSharp.fluid}
-          alt={`${projectTitle} thumbnail`}
-        />
-      ) : (
-        <p>Picture not available</p>
-      )}
+      <div className="project-link">
+        <a href={projectWebsite}>
+          {edges[currentProject] !== undefined ? (
+            <Img
+              fluid={edges[currentProject].node.childImageSharp.fluid}
+              alt={`${projectTitle} thumbnail`}
+            />
+          ) : (
+            <p style={{ fontStyle: "italic" }}>Project thumbnail not available</p>
+          )}
+        </a>
+      </div>
     </React.Fragment>
   );
 }
