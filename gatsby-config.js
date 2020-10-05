@@ -16,6 +16,16 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/${personal ? "pers_" : ""}images/`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

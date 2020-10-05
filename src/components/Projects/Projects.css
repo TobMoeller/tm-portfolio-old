@@ -1,6 +1,6 @@
-.projects {
+.projects-wrapper {
   position: relative;
-  height: 400px;
+  /* height: 400px; */
 }
 
 .project {
@@ -8,6 +8,7 @@
   /* box-sizing: content-box; */
   border-radius: 1em;
   padding: 1em;
+  box-shadow: 0px 0px 3px var(--second-sha-color);
 }
 
 /* Next & previous buttons */
@@ -17,8 +18,8 @@
   position: absolute;
   top: 50%;
   width: auto;
-  margin-top: -22px;
-  padding: 16px;
+  margin-top: -24px;
+  padding: 22px 8px;
   background-color: var(--main-bg-color);
   color: var(--second-obj-color);
   font-weight: bold;
@@ -87,5 +88,43 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+/* .project .gatsby-image-wrapper {
+  box-shadow: 0px 2px 8px var(--main-sha-color);
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: 1rem;
+} */
+
+.project .project-link {
+  margin-bottom: 1rem;
+}
+
+.project-link a .gatsby-image-wrapper {
+  box-shadow: 0px 2px 8px var(--main-sha-color);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.project > * {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.project h2 {
+  margin-top: 0.56rem;
+}
+
+.project ul {
+  margin-left: 2.56rem;
+}
+
+@media screen and (max-width: 768px) {
+  #projects .content {
+    margin: 5%;
+  }
+  #projects .content h1,
+  #projects .content p {
+    margin-left: 5%;
   }
 }

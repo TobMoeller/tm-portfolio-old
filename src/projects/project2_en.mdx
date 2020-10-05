@@ -1,12 +1,23 @@
 ---
-title: schoolproject1
-order: 1
+title: Schoolproject 2
+order: 2
 lang: en
+projectWebsite: "#"
 ---
 
-### [Testproject 2](https://github.com/TobMoeller/)
+import ProjectImage from "../components/ProjectImage/ProjectImage";
 
-#### What is it about?
+<h2>
+  <a href={props.projectWebsite}>{props.projectTitle}</a>
+</h2>
+
+<ProjectImage
+  currentProject={props.currentProject}
+  projectWebsite={props.projectWebsite}
+  projectTitle={props.projectTitle}
+/>
+
+### What is it about?
 
 Testproject 2
 
