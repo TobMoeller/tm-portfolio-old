@@ -118,3 +118,13 @@
 .project ul {
   margin-left: 2.56rem;
 }
+
+@media screen and (max-width: 768px) {
+  #projects .content {
+    margin: 5%;
+  }
+  #projects .content h1,
+  #projects .content p {
+    margin-left: 5%;
+  }
+}
