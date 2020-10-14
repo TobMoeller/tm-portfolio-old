@@ -50,6 +50,9 @@ header h1:hover {
   .main-nav li {
     padding: 0px 0.5rem;
   }
+  header {
+    padding: 10px 10%;
+  }
 }
 .main-nav li a {
   text-decoration: none;
@@ -122,9 +125,6 @@ header h1:hover {
     border-bottom: solid 2px var(--third-obj-color);
     text-align: end;
     padding: 0;
-  }
-  header {
-    padding: 10px 10%;
   }
   .burger {
     display: block;

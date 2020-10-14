@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import "./Header.css";
 import { useLanguage, useLanguageUpdate, useThemeUpdate } from "../Context/ContextProvider";
-import germany from "../../images/germany32.png";
-import unitedstates from "../../images/united-states32.png";
-import roller from "../../images/paint-roller32.png";
+import germany from "../../images/icons/germany32.png";
+import unitedstates from "../../images/icons/united-states32.png";
+import roller from "../../images/icons/paint-roller32.png";
+import AnimatedLogo from "../AnimatedLogo/AnimatedLogo";
 
 export default function Header({ sections: links }) {
   const [burgerStatus, setBurgerStatus] = useState("close");
@@ -15,7 +16,7 @@ export default function Header({ sections: links }) {
     <React.Fragment>
       <header>
         <Link to="/">
-          <h1>{"{tm}"}</h1>
+          <h1><AnimatedLogo alterChar={"close"} /></h1>
         </Link>
         <nav id="navigation">
           <ul className={`main-nav ${burgerStatus}`}>
@@ -41,8 +42,8 @@ export default function Header({ sections: links }) {
                 {language === "en" ? (
                   <img src={germany} alt="icon of german flag" />
                 ) : (
-                  <img src={unitedstates} alt="icon of united states flag" />
-                )}
+                    <img src={unitedstates} alt="icon of united states flag" />
+                  )}
               </button>
               <button className="theme-selector" onClick={() => switchTheme()}>
                 <img src={roller} alt="icon of a paint roller" />
